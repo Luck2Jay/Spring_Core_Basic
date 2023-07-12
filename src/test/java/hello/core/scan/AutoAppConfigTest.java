@@ -1,5 +1,6 @@
 package hello.core.scan;
 
+import hello.core.AutoAppConfig;
 import hello.core.member.MemberService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,7 +13,8 @@ public class AutoAppConfigTest {
 
     @Test
     void basicScan(){
-        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfigTest.class);
+        // AutoAppConfigTest로 넣어서 2일동안 안되었음 ㅠ...
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class);
         MemberService memberService = ac.getBean(MemberService.class);
         assertThat(memberService).isInstanceOf(MemberService.class);
 
